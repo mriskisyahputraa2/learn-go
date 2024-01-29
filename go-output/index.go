@@ -10,6 +10,7 @@ ADA 3 CARA DALAM MENAMPILKAN OUTPUT PADA PEMROGRAMAN GOLANG, MASING-MASING MEMIL
 2. %T : mencetak `tipe data` value // yang umum digunakan
 3. %#v : mencetak value dalam format Go-Syntax
 4. %% : mencetak tanda %
+5. %d : mencetak nilai int
 
 # \n: MEMBUAT BARIS BARU
 # " ": MENAMBAH SPASI

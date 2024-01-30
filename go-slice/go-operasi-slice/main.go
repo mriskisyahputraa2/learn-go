@@ -10,6 +10,13 @@
 		* Ketika menggunakan irisan, Go memuat semua elemen yang mendasarinya ke dalam memori.
 		* Jika arranya besar dan Anda hanya membutuhkan beberapa elemen, lebih baik menyalin elemen-elemen tersebut menggunakan fungsi copy().
 		* Fungsi copy() membuat array baru dengan elemen yang dibutuhkan untuk slice. Hal ini akan mengurangi memori yang digunakan untuk program.
+		* Fungsi copy() mengambil dua irisan dest dan menyalin data dari src ke dest. Fungsi ini mengembalikan jumlah elemen yang disalin.
+
+	# Fungsi make() di Golang digunakasrc,n untuk membuat variabel baru dengan tipe data slice, map, atau channel. Fungsi ini menerima dua atau tiga parameter, yaitu:
+		1. Tipe data, yang menentukan tipe elemen dari variabel yang akan dibuat.
+		2. Panjang, yang menentukan jumlah elemen awal dari variabel yang akan dibuat.
+		3. Kapasitas, yang menentukan jumlah elemen maksimum yang dapat ditampung oleh variabel.
+	Jika kapasitas tidak ditentukan, maka nilainya akan sama dengan panjang.
 
 */
 
@@ -87,11 +94,29 @@ func main() {
 	fmt.Println("\n")
 
 	// MENYALIN(COPY) ELEMEN DARI SEBUAH SLICE
-	angka := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
-	fmt.Println("MENYALIN/COPY PANJANG ELEMEN DENGAN SLICE BEFORE ")
-	fmt.Println("original angka =", angka)
-	fmt.Println("leght =", len(angka))
-	fmt.Println("capacity =", cap(angka))
+	angka := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15} // slice original
+	fmt.Println("SEBELUM MENYALIN/COPY PANJANG ELEMEN DENGAN SLICE ")
+	fmt.Println("original angka =", angka) // menampilkan slice original
+	fmt.Println("leght =", len(angka))     // menampilkan panjang slice
+	fmt.Println("capacity =", cap(angka))  // menampilkan kapasitas slice
 	fmt.Println("\n")
+
+	// membuat(make) variabel slice dengan nama copyAngka
+	copyAngka := make([]int, len(angka), cap(angka)) // menerima parameter make yaitu: tipe data, panjang (angka), capacity (angka).
+	copy(copyAngka, angka)                           // menyalin data (angka) ke slice (copyAngka) atau disebut dest(copyAngka) dan src(angka)
+	fmt.Println("SESUDAH MENYALIN/COPY PANJANG ELEMEN DENGAN SLICE ")
+	fmt.Println("copy angka =", copyAngka)
+	fmt.Println("leght =", len(copyAngka))
+	fmt.Println("capacity =", cap(copyAngka))
+	fmt.Println("\n")
+
+	neededAngka := angka[:len(angka)-10]        // panjang dari array angka dikurangi 10. awalnya 15 - 10 = hasil data nya = 5
+	copyNumber := make([]int, len(neededAngka)) // disini data nya sudah menjadi 5. ini akan di tampilkan
+	copy(copyNumber, neededAngka)               // menggunakan fungsi copy(dest, src)
+
+	// output data yang baru
+	fmt.Printf("numbersCopy = %d\n", neededAngka)
+	fmt.Printf("lenght = %d\n", len(neededAngka))
+	fmt.Printf("capacity = %d\n", cap(neededAngka))
 
 }

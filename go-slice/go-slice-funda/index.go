@@ -58,7 +58,7 @@ func main() {
 	iniArray3 := [10]int{1, 3, 4, 6, 67, 73, 63, 53, 21, 45}
 	sliceB := iniArray3[4:]
 
-	// contoh c (high:)
+	// contoh c (:high)
 	iniArray4 := [10]int{1, 3, 4, 6, 67, 73, 63, 53, 21, 45}
 	sliceC := iniArray4[:6]
 

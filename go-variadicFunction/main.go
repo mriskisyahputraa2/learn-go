@@ -35,20 +35,28 @@
 	- KARENA Varargs PADA VARIADIC FUNCTION AKAN DIUBAH MENJADI "SLICE", OLEH KARNA ITU
 	KITA BISA MELAKUKAN PARULANGAN PADA Varrags UNTUK MELAKUKAN PENJUMLAHAN.
 
+#  Fungsi range:
+	- Mengulang setiap elemen slice, array, map, atau string.
+	- Mendapatkan nilai dan index (opsional) dari setiap elemen.
+
+# (Underscore) _ : digunakan untuk tidak menggunakan index dari slice, jadi indexnya tidak ditampilkan dan digunakan. karna default dari slice mengembalikan index dan value
+
+
 */
 
 package main
 
 import "fmt"
 
-// ...(titik tiga) ini digunakan untuk bisa memasukkan banyak nilai dari argument
+// ...(titik tiga) ini digunakan untuk bisa memasukkan banyak nilai dari argument disebut dengan slice
 func sum(nums ...int) int {
 
 	// v-total ini digunakan untuk menampung nilai parameter nums diawali dengan 0
 	total := 0
 
 	// melakukan perulangan paramter nums
-	for _, num := range nums { // range nums ini belum tau cara bacanya
+	// _(undersroce) digunakan untuk tidak perlu menggunakan index pada slice, karna default dari slice mengembalikan index dan value, sedangkan disini kita tidak perlu dengan indexnya hanya mengambil valuenya yaitu "num"
+	for _, num := range nums { // range digunakan untuk mengulang setiap element slice
 		total += num // nilai dari total ditambah dengan num. jadi awalnya 1+1=2+1=3+3=6+4=10+5=15
 	}
 	return total // lalu kembalikan nilai dari total
@@ -57,6 +65,6 @@ func sum(nums ...int) int {
 
 func main() {
 	// contohnya ini kita memasukkan banyak nilai dengan satu argument dipisahkan dengan koma
-	sumAll := sum(1, 2, 3, 4, 5) // ini nilai paramaternya sudah masuk ke perulangan num
+	sumAll := sum(1, 2, 3, 4, 5) // ini nilai paramaternya sudah masuk ke perulangan num, ini data slice
 	fmt.Println(sumAll)          // 15
 }

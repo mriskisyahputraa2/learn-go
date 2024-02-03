@@ -33,7 +33,7 @@
 	FUNCTION
 	- SEBENARNYA DEFAULTNYA KITA BISA MEMASUKKAN SLICE SEBAGAI ARGUMENT PADA VARIADIC FUNCTION
 	- KARENA Varargs PADA VARIADIC FUNCTION AKAN DIUBAH MENJADI "SLICE", OLEH KARNA ITU
-	KITA BISA MELAKUKAN PARULANGAN PADA Varrags UNTUK MELAKUKAN PENJUMLAHAN.
+	KITA BISA MELAKUKAN PERULANGAN PADA Varrags UNTUK MELAKUKAN PENJUMLAHAN.
 
 #  Fungsi range:
 	- Mengulang setiap elemen slice, array, map, atau string.
@@ -50,6 +50,7 @@ import "fmt"
 
 // ...(titik tiga) ini digunakan untuk bisa memasukkan banyak nilai dari argument disebut dengan slice
 func sum(nums ...int) int {
+	fmt.Println("ini adalah number dari function nums yang di deklarasi =", nums)
 
 	// v-total ini digunakan untuk menampung nilai parameter nums diawali dengan 0
 	total := 0
@@ -60,11 +61,26 @@ func sum(nums ...int) int {
 		total += num // nilai dari total ditambah dengan num. jadi awalnya 1+1=2+1=3+3=6+4=10+5=15
 	}
 	return total // lalu kembalikan nilai dari total
+}
 
+func num(numbers ...int) int {
+	total := 0
+
+	for _, number := range numbers {
+		total += number
+	}
+
+	return total
 }
 
 func main() {
 	// contohnya ini kita memasukkan banyak nilai dengan satu argument dipisahkan dengan koma
-	sumAll := sum(1, 2, 3, 4, 5) // ini nilai paramaternya sudah masuk ke perulangan num, ini data slice
+	sumAll := sum(1, 2, 3, 4, 5) // ini nilai paramaternya sudah masuk ke perulangan num, ini data int dan diubah menjadi slice
 	fmt.Println(sumAll)          // 15
+
+	// output varidic function slice parameter
+	numbersSlice := []int{10, 20, 30, 40, 50} // berbeda dengan ouput di atas, kalo ini nilainya udh menjadi slice tinggal di panngil
+	result := num(numbersSlice...)            // ini pemanggilannya menggunakan titik tiga, untuk menyebarkan element slice sebagai argument individual ke fungsi num
+	fmt.Println(result)                       // hasil nya = 150
+
 }

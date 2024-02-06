@@ -16,7 +16,7 @@ func sum(a, b int) int {
 }
 
 func main() {
-	total := sum
+	total := sum // Baris ini mengatribusikan fungsi sum ke variabel total. Ini berarti total sekarang menyimpan referensi ke fungsi sum.
 	fmt.Print(total(1, 3))
 
 }

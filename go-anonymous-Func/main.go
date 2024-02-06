@@ -32,7 +32,7 @@ func main() {
 	}
 	person("Riski", 18)
 
-	// program menggunakan return valur
+	// program menggunakan return value
 	addNumber := func(a int, b int) int { // int kosong ini digunakan untuk return value
 		result := a + b
 		return result

@@ -4,7 +4,7 @@
 	- RECURSIVE FUNCTIONS ADALAH FUNCTION YANG MEMANGGIL FUNCTION DIRINYA SENDIRI
 	- SUATU FUNGSI BERSIGAT RECURSIVE JIKA MEMANGGIL DIRINYA SENDIRI DAN MENCAPAI
 	KONDISI BERHENTI
-	- HATI-HATI DALAM MENULISA RECURSIVE FUNCTION KARNA RAWAN INFINIT LOOP, TAPI INI SANGAT BAGUS
+	- HATI-HATI DALAM MENULIS RECURSIVE FUNCTION KARNA RAWAN INFINIT LOOP, TAPI INI SANGAT BAGUS
 
 */
 
@@ -16,7 +16,7 @@ import "fmt"
 func countTest(x int) int { // type int kedua, artinya mengembalikan return type int
 	// if ini adalah kondisi berhenti dimana induk pokoknya ada di return
 	if x == 11 { // jika nilai x sama dengan 11
-		return 0 // maka kembalikan nilai 0
+		return 0 // maka kembalikan nilai 0. untuk memberhentikan kondisi rekursi
 	}
 
 	fmt.Println(x) // cetak nilai x
@@ -29,7 +29,7 @@ func factorialRecursive(z int) int {
 
 	// membuat logika berhenti faktorialnya
 	if z == 0 { // jika z == 0. contohnya 5 == 0? no 4 == 0?no sampai 0 == 0
-		return 1 // kembalikan nilai 1, untuk memberhatikan nilai hati-hati dengan ini
+		return 1 // kembalikan nilai 1, untuk memberhentikan rekursi nilai hati-hati dengan ini karna bisa menjadi infinite loops
 	}
 
 	// function yang mengembalikan fungsi nya sendiri.
